@@ -1,0 +1,8 @@
+{% load i18n %}
+
+<form method="post" action="{% url sharer_share %}">
+    <ul>
+        {{ form.as_ul }}
+        <li><input type="submit" value="{% trans "Share" %}" /></li>
+    </ul>
+</form>

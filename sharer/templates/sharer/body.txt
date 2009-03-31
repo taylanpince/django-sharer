@@ -1,0 +1,8 @@
+{% load i18n %}
+{% trans "I thought you might find this interesting:" %}
+
+    {{ title }}
+    {{ url }}
+    {{ message }}
+
+{{ sender }}
