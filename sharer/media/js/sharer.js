@@ -18,7 +18,7 @@ core.Sharer = $.Class.extend({
     url : "",
     title : "",
     
-    link_template : '<a href="javascript:void(0);">%(copy)</a>',
+    link_template : '<a href="javascript:void(0);" class="share-link">%(copy)</a>',
     
     link_copy : 'Share',
     

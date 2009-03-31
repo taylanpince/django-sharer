@@ -7,11 +7,11 @@
     
     <h4>{% trans "Share" %}</h4>
     
-    <p><a href="{% url sharer_share %}?url={{ url|urlencode }}&title={{ title|urlencode }}">{% trans "Send Email" %}</a></p>
+    <p><a href="{% url sharer_share %}?url={{ url|urlencode }}&title={{ title|urlencode }}" class="share-email">{% trans "Send Email" %}</a></p>
     
     <ul>
         {% for network in networks %}
-        <li><a href="{% share_url network title url %}">{{ network.name }}</a></li>
+        <li><a href="{% share_url network title url %}"{% if network.icon %} class="share-network" style="background-image: url({{ network.icon.url }});"{% endif %}>{{ network.name }}</a></li>
         {% endfor %}
     </ul>
     

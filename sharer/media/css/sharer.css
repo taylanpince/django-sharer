@@ -15,7 +15,7 @@ div.share-widget {
 
 div.share-box p,
 div.share-widget p {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
 }
 
 div.share-widget {
@@ -35,7 +35,28 @@ div.share-widget ul {
 
 div.share-widget ul li {
     padding: 0px;
+    margin-bottom: 6px;
     border: none;
+}
+
+a.share-link,
+a.share-email,
+a.share-network {
+    padding-left: 21px;
+    background-position: top left;
+    background-repeat: no-repeat;
+    text-decoration: none;
+}
+
+a.share-link {
+    display: block;
+    margin-bottom: 10px;
+    background-position: 0px 1px;
+    background-image: url("../images/icon-share.png");
+}
+
+a.share-email {
+    background-image: url("../images/icon-email.png");
 }
 
 /* @end */
