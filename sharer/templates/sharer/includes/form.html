@@ -2,7 +2,15 @@
 
 <form method="post" action="{% url sharer_share %}">
     <ul>
-        {{ form.as_ul }}
-        <li><input type="submit" value="{% trans "Share" %}" /></li>
+        {% for field in form %}
+        <li>
+            {% if not field.is_hidden %}
+            {{ field.label_tag }}
+            {% if field.errors %}<p class="error">{{ field.errors|join:"<br />" }}</p>{% endif %}
+            {% endif %}
+            {{ field }}
+        </li>
+        {% endfor %}
+        <li class="submit"><input type="submit" value="{% trans "Share" %}" /></li>
     </ul>
 </form>

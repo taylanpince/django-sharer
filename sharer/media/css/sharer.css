@@ -11,6 +11,11 @@ div.share-box,
 div.share-widget {
     border: 1px solid #CCC;
     background-color: #FFF;
+    padding: 8px;
+}
+
+div.share-box {
+    margin-bottom: 10px;
 }
 
 div.share-box p,
@@ -22,17 +27,27 @@ div.share-widget {
     position: absolute;
     display: none;
     width: 150px;
-    padding: 8px;
+}
+
+div.share-widget-form {
+    width: 300px;
+}
+
+div.share-box h4 {
+    font-weight: bold;
+    font-size: 14px;
 }
 
 div.share-widget h4 {
     display: none;
 }
 
+div.share-box ul,
 div.share-widget ul {
     margin-bottom: 0px;
 }
 
+div.share-box ul li,
 div.share-widget ul li {
     padding: 0px;
     margin-bottom: 6px;
@@ -57,6 +72,15 @@ a.share-link {
 
 a.share-email {
     background-image: url("../images/icon-email.png");
+}
+
+div.share-form input.text,
+div.share-form textarea {
+    width: 290px;
+}
+
+div.share-form li.submit input {
+    margin-right: 15px;
 }
 
 /* @end */
