@@ -39,6 +39,11 @@ TEMPLATE_CONTEXT_PROCESSORS:
 This is not required, but makes it possible for the app to generate a widget
 without any parameters.
 
+If you are going to use the share by email feature, you should also update
+your urls.py to include sharer urls:
+
+    (r'^share/', include('sharer.urls')),
+
 In your MEDIA_ROOT folder, make a symlink named sharer to the django-sharer's
 media directory:
 
