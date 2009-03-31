@@ -6,6 +6,7 @@ from django.template.defaultfilters import urlencode
 
 from sharer.forms import EmailShareForm
 from sharer.models import SocialNetwork
+from sharer.settings import ENABLE_EMAILS
 
 
 register = template.Library()
@@ -27,16 +28,11 @@ def share(context, title="", url=""):
         if site:
             url = urljoin("http://%s" % site.domain, url)
 
-    form = EmailShareForm(auto_id=None, initial={
-        "url": url,
-        "title": title,
-    })
-
     return {
         "networks": networks,
         "title": title,
         "url": url,
-        "form": form,
+        "ENABLE_EMAILS": ENABLE_EMAILS,
         "MEDIA_URL": context.get("MEDIA_URL", ""),
         "LANGUAGE_CODE": context.get("LANGUAGE_CODE", ""),
     }

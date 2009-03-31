@@ -7,12 +7,15 @@
     
     <h4>{% trans "Share" %}</h4>
     
+    {% if ENABLE_EMAILS %}
     <p>
         <a href="{% url sharer_share %}?url={{ url|urlencode }}&title={{ title|urlencode }}" class="share-email">
             {% trans "Send Email" %}
         </a>
     </p>
+    {% endif %}
     
+    {% if networks %}
     <ul>
         {% for network in networks %}
         <li>
@@ -22,6 +25,7 @@
         </li>
         {% endfor %}
     </ul>
+    {% endif %}
     
 </div>
 
