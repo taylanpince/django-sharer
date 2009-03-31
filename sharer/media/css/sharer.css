@@ -1,0 +1,41 @@
+/*
+ *	Title: Sharer Styles
+ *	Date: March 30, 2009
+ *  Author: Taylan Pince (taylanpince at gmail dot com)
+ */
+
+
+/* @group Sharer */
+
+div.share-box,
+div.share-widget {
+    border: 1px solid #CCC;
+    background-color: #FFF;
+}
+
+div.share-box p,
+div.share-widget p {
+    margin-bottom: 4px;
+}
+
+div.share-widget {
+    position: absolute;
+    display: none;
+    width: 150px;
+    padding: 8px;
+}
+
+div.share-widget h4 {
+    display: none;
+}
+
+div.share-widget ul {
+    margin-bottom: 0px;
+}
+
+div.share-widget ul li {
+    padding: 0px;
+    border: none;
+}
+
+/* @end */

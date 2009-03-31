@@ -3,7 +3,7 @@
 
 {% if networks %}
 
-<div class="share">
+<div class="share-box">
     
     <h4>{% trans "Share" %}</h4>
     
@@ -16,5 +16,14 @@
     </ul>
     
 </div>
+
+<script type="text/javascript">
+//<![CDATA[
+    new core.Sharer("div.share-box", {
+        url : "{{ url }}",
+        title : "{{ title }}"
+    });
+//]]>
+</script>
 
 {% endif %}
