@@ -4,8 +4,10 @@ from django.core.mail import EmailMessage
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.template.loader import render_to_string
+from django.utils import simplejson
 from django.views.generic import simple
 
+from sharer.encoders import LazyEncoder
 from sharer.forms import EmailShareForm
 
 
@@ -40,14 +42,28 @@ def share(request, mimetype="plain", subject_template="sharer/subject.txt", body
             email.content_subtype = mimetype
             email.send()
 
-            return HttpResponseRedirect(reverse("sharer_done"))
+            if request.is_ajax():
+                return simple.direct_to_template(request, "sharer/form.json", {
+                    "errors": None,
+                }, mimetype="application/json")
+            else:
+                return HttpResponseRedirect(reverse("sharer_done"))
+        elif request.is_ajax():
+            return simple.direct_to_template(request, "sharer/form.json", {
+                "errors": simplejson.dumps(form.errors, cls=LazyEncoder, ensure_ascii=False),
+            }, mimetype="application/json")
     else:
         form = EmailShareForm(auto_id=None, initial={
             "url": request.GET.get("url", request.META.get("HTTP_REFERER", "")),
             "title": request.GET.get("title", ""),
         })
 
-    return simple.direct_to_template(request, "sharer/form.html", {
+    if request.is_ajax():
+        template = "sharer/includes/form.html"
+    else:
+        template = "sharer/form.html"
+        
+    return simple.direct_to_template(request, template, {
         "form": form,
     })
 
