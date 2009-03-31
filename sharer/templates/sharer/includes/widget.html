@@ -7,13 +7,13 @@
     
     <h4>{% trans "Share" %}</h4>
     
+    <p><a href="{% url sharer_share %}?url={{ url|urlencode }}&title={{ title|urlencode }}">{% trans "Send Email" %}</a></p>
+    
     <ul>
         {% for network in networks %}
         <li><a href="{% share_url network title url %}">{{ network.name }}</a></li>
         {% endfor %}
     </ul>
-    
-    {% include "sharer/includes/form.html" %}
     
 </div>
 

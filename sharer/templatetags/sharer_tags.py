@@ -1,4 +1,5 @@
 from django import template
+from django.template.defaultfilters import urlencode
 
 from sharer.forms import EmailShareForm
 from sharer.models import SocialNetwork
@@ -38,6 +39,6 @@ def share_url(network, title="", url=""):
     Builds a network url with given variables
     """
     return network.url % {
-        "url": url,
-        "title": title,
+        "url": urlencode(url),
+        "title": urlencode(title),
     }
