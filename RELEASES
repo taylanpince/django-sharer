@@ -1,0 +1,13 @@
+django-sharer-0.1.0ALPHA
+========================
+
+Tagged on March 31, 2009 by Taylan Pince
+
+
+Features
+--------
+
+* Sharing an item over a list of social networks configurable in the admin
+* Sharing an item over e-mail
+* AJAX support for the widget
+* Small list of initial social networks included
