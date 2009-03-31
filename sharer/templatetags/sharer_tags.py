@@ -14,14 +14,14 @@ def share(context, title="", url=""):
     networks = SocialNetwork.objects.all()
 
     if not url:
-        url = context.get("SHARE_URI", None)
+        url = context.get("SHARE_URI", "")
 
     return {
         "networks": networks,
         "title": title,
         "url": url,
-        "MEDIA_URL": context.get("MEDIA_URL", None),
-        "LANGUAGE_CODE": context.get("LANGUAGE_CODE", None),
+        "MEDIA_URL": context.get("MEDIA_URL", ""),
+        "LANGUAGE_CODE": context.get("LANGUAGE_CODE", ""),
     }
 
 

@@ -2,9 +2,12 @@
 {% load sharer_tags %}
 
 {% if networks %}
-<ul>
-    {% for network in networks %}
-    <li><a href="{% share_url network title url %}">{{ network.name }}</a></li>
-    {% endfor %}
-</ul>
+<div class="share">
+    <h4>{% trans "Share" %}</h4>
+    <ul>
+        {% for network in networks %}
+        <li><a href="{% share_url network title url %}">{{ network.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
 {% endif %}
