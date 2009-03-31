@@ -1,0 +1,86 @@
+django-sharer
+=============
+
+This is a simple Django application that provides an interface to share a
+given item on social networking sites, or send an email to a friend about it.
+
+
+Dependencies
+------------
+
+django-sharer requires Django 1.0 or later. To enable the JavaScript widget,
+jQuery 1.2 or later with the jQuery Class plug-in 
+<http://github.com/taylanpince/jquery-class> is needed. A combined version of 
+these tools is available within the distribution, but if you already are using
+jQuery in your project, you might want to grab the Class plug-in separately
+and include it in your template.
+
+
+Installation
+------------
+
+To install the app, make sure you place it somewhere on your PYTHONPATH and
+include it in your INSTALLED_APPS in settings.py:
+
+    INSTALLED_APPS = (
+        ...
+        'django-sharer',
+        ...
+    )
+
+You may also want to include the share_uri context processor in your
+TEMPLATE_CONTEXT_PROCESSORS:
+
+    TEMPLATE_CONTEXT_PROCESSORS = (
+        ...
+        'sharer.context_processors.share_uri',
+    )
+
+This is not required, but makes it possible for the app to generate a widget
+without any parameters.
+
+In your MEDIA_ROOT folder, make a symlink named sharer to the django-sharer's
+media directory:
+
+    cd my_project/media
+    ln -s path/to/django-sharer/sharer/media sharer
+
+Finally, to use the widget in your templates, load the template tag library,
+include the necessary JS and CSS files, and then call the template tag:
+
+    {% load sharer_tags %}
+    
+    {% block javascript %}
+    <script type="text/javascript" src="{{ MEDIA_URL }}sharer/js/sharer.js"></script>
+    {% endblock %}
+
+    {% block css %}
+    <style type="text/css">
+        @import "{{ MEDIA_URL }}sharer/css/sharer.css";
+    </style>
+    {% endblock %}
+    
+    {% block content %}
+    
+    {% share %}
+    
+    {% endblock %}
+
+You can also call the share template tag with a specific title and/or URL:
+
+    {% share specific_title specific_url %}
+
+
+Features to be Implemented
+--------------------------
+
+- Email sender should be secured against possible spammer attacks. Possible
+  solutions:
+
+    * CAPTCHA
+    * Check HTTP_REFERRER
+
+- AJAX requests should show a loading bar
+
+- More social networks should be added in the initial_data
+
