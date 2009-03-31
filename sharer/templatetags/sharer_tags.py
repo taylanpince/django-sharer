@@ -1,4 +1,7 @@
+from urlparse import urljoin
+
 from django import template
+from django.contrib.sites.models import Site
 from django.template.defaultfilters import urlencode
 
 from sharer.forms import EmailShareForm
@@ -17,6 +20,12 @@ def share(context, title="", url=""):
 
     if not url:
         url = context.get("SHARE_URI", "")
+
+    if url.startswith("/"):
+        site = Site.objects.get_current()
+
+        if site:
+            url = urljoin("http://%s" % site.domain, url)
 
     form = EmailShareForm(auto_id=None, initial={
         "url": url,
