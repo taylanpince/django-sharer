@@ -73,7 +73,30 @@ include the necessary JS and CSS files, and then call the template tag:
 
 You can also call the share template tag with a specific title and/or URL:
 
-    {% share specific_title specific_url %}
+    {% share title url %}
+
+
+Customization
+-------------
+
+If you would like to send out email messages that contain HTML instead of 
+plain text, you can do so by explicitly calling the email views with some
+extra parameters. In your urls.py, instead of including sharer urls, do this:
+
+    url(r'^share/$', 'sharer.views.share', {
+        "mimetype": "html",
+        "subject_template": "sharer/subject.txt",
+        "body_template": "sharer/body.html",
+    }, name='sharer_share'),
+    
+    url(r'^share/done/$', 'sharer.views.share_done', name='sharer_done'),
+
+You can also turn off sharing by email completely by overriding the default
+setting variable. In your settings.py, do this:
+
+    SHARER_ENABLE_EMAILS = False
+
+If you set this to False, you don't have to include the urls.
 
 
 Features to be Implemented
