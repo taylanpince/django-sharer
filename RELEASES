@@ -1,3 +1,17 @@
+django-sharer-0.2.0ALPHA
+========================
+
+Tagged on March 31, 2009 by Taylan Pince
+
+
+Features
+--------
+
+* Added setting variable to turn off sharing over email
+* Added more networks to initial_data
+
+* * *
+
 django-sharer-0.1.0ALPHA
 ========================
 

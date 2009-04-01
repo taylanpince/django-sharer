@@ -99,6 +99,29 @@ setting variable. In your settings.py, do this:
 If you set this to False, you don't have to include the urls.
 
 
+Initial Data
+------------
+
+The app comes with an initial_data fixture that will be automatically loaded
+when it's synchronized. Following networks are included with their icons and
+URL schemes:
+
+    Yahoo! Bookmarks
+    Newsvine
+    LinkedIn
+    Windows Live
+    Google Bookmarks
+    Technorati
+    Reddit
+    StumbleUpon
+    Twitter
+    Delicious
+    Digg
+    Facebook
+
+You can add/delete networks from the admin area.
+
+
 Features to be Implemented
 --------------------------
 
@@ -109,8 +132,6 @@ Features to be Implemented
     * Check HTTP_REFERRER
 
 - AJAX requests should show a loading bar
-
-- More social networks should be added in the initial_data
 
 - Add tests (!)
 
