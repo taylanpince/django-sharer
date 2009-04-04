@@ -1,3 +1,4 @@
+from django.core import mail
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
@@ -30,3 +31,15 @@ class SharerTestCase(TestCase):
 
         self.assertFormError(response, 'form', 'recipient', 'This field is required.')
         self.assertFormError(response, 'form', 'sender', 'This field is required.')
+
+    def testShareFormSendsEmail(self):
+        response = self.client.post(reverse("sharer_share"), {
+            "recipient": "taylanpince@gmail.com",
+            "sender": "taylan@orangeslices.net",
+            "message": "This is a test!",
+            "url": "http://www.dummy.com",
+            "title": "Dummy Title",
+        })
+
+        self.assertRedirects(response, reverse("sharer_done"))
+        self.assertEquals(len(mail.outbox), 1)
