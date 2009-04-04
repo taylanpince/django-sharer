@@ -132,6 +132,3 @@ Features to be Implemented
     * Check HTTP_REFERRER
 
 - AJAX requests should show a loading bar
-
-- Add tests (!)
-
